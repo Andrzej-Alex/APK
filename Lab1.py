@@ -9,8 +9,22 @@ print("e: ",teskt.split('.')[0])
 """
 
 # 2)
-"""
 x = int(input("podaj liczbe x: "))
 y = int(input("podaj liczbe y: "))
 print((2*x)+(5*y))
+
+# 3)
 """
+a = input("podaj imie: ")
+b = input("podaj nazwisko: ")
+c = int(input("podaj wiek: "))
+d = input("podaj kierunek studiow: ")
+print(f"Jestem {a} {b} mam {c} lat studiuję {d}")
+"""
+# 4)
+"""
+liczba1 = 1+2+10+20000001+4+347586970885
+liczba2 = 321784560456434534646
+print(liczba1 == liczba2)
+"""
+
