@@ -7,3 +7,10 @@ print("c: ",teskt.split(' '))
 print("d: ",len(teskt.split('.')))
 print("e: ",teskt.split('.')[0])
 """
+
+# 2)
+"""
+x = int(input("podaj liczbe x: "))
+y = int(input("podaj liczbe y: "))
+print((2*x)+(5*y))
+"""
