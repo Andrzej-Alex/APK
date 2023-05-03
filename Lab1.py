@@ -29,4 +29,49 @@ liczba1 = 1+2+10+20000001+4+347586970885
 liczba2 = 321784560456434534646
 print(liczba1 == liczba2)
 """
+# 5)
+"""
+podana1 = int(input("podaj pierwszą liczbę: "))
+podana2 = int(input("podaj drugą liczbę: "))
+suma_dwoch = (podana1 + podana2) % 2 #1 - nie parzysta /// 0 - parzysta
+print(suma_dwoch)
+if (suma_dwoch == 0):
+    print(f"suma liczb: {podana1} i {podana2} jest parzysta")
+else:
+    print(f"suma liczb: {podana1} i {podana2} NIE jest parzysta")
+"""
+# 6)
+"""
+petla = True
+wybor = ""
+while petla == True:
+    wybor = input(
+        "Wybierz tryb kalkulatora wypisując odpowiedni wyraz (Do wyboru jest 'suma', 'roznica', 'iloczyn', 'iloraz', 'potega')\n: ")
+    if (wybor == "suma" or wybor == "roznica" or wybor == "iloczyn" or wybor == "iloraz" or wybor == "potega"):
+        petla = False
+    else:
+        print("nieznany tryb, wpisz jeszcze raz")
+
+
+kalk1 = int(input("podaj pierwszą liczbę: "))
+kalk2 = int(input("podaj drugą liczbę: "))
+if (wybor == "suma"):
+    print(kalk1 + kalk2)
+elif (wybor == "roznica"):
+    print(kalk1 - kalk2)
+elif (wybor == "iloczyn"):
+    print(kalk1 * kalk2)
+elif (wybor == "iloraz"):
+    print(kalk1 / kalk2)
+elif (wybor == "potega"):
+    print(kalk1 ** kalk2)
+"""
+
+# 7)
+"""
+dowolnyx = int(input("podaj dowolnego x: "))
+
+print((dowolnyx > 1 and dowolnyx < 13))
+print((dowolnyx != 5 or dowolnyx < 0))
+"""
 
