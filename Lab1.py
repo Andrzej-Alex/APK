@@ -1,6 +1,23 @@
 """
 Andrzej Aleksandrowicz
 """
+##############  Zadania do wykonania
+## 1. Przekopiuj dowolny ale długi fragment tekstu ze strony:
+## http://www.national-geographic.pl/ludzie/dziennikarka-kontra-komputer-kto-napisze-lepszy-tekst
+## sprawdź:
+## a) ile razy w tekście występuje słowo Emma
+## b) zamień całość tekstu na duże litery
+## c) wstaw poszczególne wyrazy jako elementy listy
+## d) Ile zdań jest w analizowanym tekście?
+## 2. Oblicz wyrażenie 2x+5y   gdzie: x,y to dowolne dwie liczby które podaje użytkownik (w konsoli)
+## 3. Wyświetl zdanie "Jestem a b mam c lat studiuję d",
+##  gdzie : a-imie, a-nazwisko, c-liczba, d-kierunek studiów są dowolne zmienne które podaje użytkownik (wczytywane z klawiatury)
+## 4. Sprawdź/porównaj czy 1+2+10+20000001+4+347586970885 jest równa 321784560456434534646
+## 5. Sprawdź czy suma dowolnych dwóch liczb podanych przez użytkownika jest liczbą parzystą czy nieparzystą wyświetl właściwy komunikat
+##   użyj operatora modulo % który zwraca resztę z dzielenia  np. 5%2   czyli 2 reszta 0
+## 6. Utwórz prosty kalkulator dla 2 zmiennych podanych przez użytkownika, który obliczy: sumę, różnicę,
+## iloczyn, iloraz, potęgę tych liczb, nie zapomnij o stosownych komentarzach informacyjnych dla użytkownika.
+## 7. Dla dowolnego x sprawdź wynik działań (x > 1 and x < 13) oraz (x != 5 or x < 0)
 
 # 1)
 """
