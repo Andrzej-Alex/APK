@@ -3,7 +3,7 @@ Andrzej Aleksandrowicz4
 """
 
 # 1)
-
+"""
 while True:
     x = int(input("Wprowadź pierwszą liczbę: "))
     y = int(input("Wprowadź drugą liczbę: "))
@@ -12,7 +12,9 @@ while True:
         break
     product = x * y
     print(f"{x} * {y} = {product}")
-    print("Do you want to continue? (y/n)")
+    print("Jeszcze raz? (t/n)")
     answer = input()
     if answer == "n":
-        print("Program stopped working")
+        print("KONIEC PROGRAMU")
+"""
+
