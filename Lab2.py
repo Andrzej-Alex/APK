@@ -255,7 +255,7 @@ logowanie = dekorator_dodaj_pola(logowanie)
 logowanie()
 
 """
-Punkt B):
+Punkt B): 
 """
 
 def logowanie(user='edek2003', password='Wsx123', **kwargs):
