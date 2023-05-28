@@ -49,7 +49,9 @@ print(f"Jestem {a} {b} mam {c} lat studiuję {d}")
 liczba1 = 1+2+10+20000001+4+347586970885
 liczba2 = 321784560456434534646
 print(liczba1 == liczba2)
+""
 # lub
+""
 if 1+2+10+20000001+4+347586970885 == 321784560456434534646:
     print("Tak jest rowna")
 else:
