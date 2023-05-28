@@ -239,7 +239,7 @@ print(oblicz_pole_figury(2, typ="kwadrat"))  # Oblicza pole kwadratu
 # Zadanie 11
 """
 """
-Punkt a):
+Punkt A):
 """
 def logowanie(user='edek2003', password='Wsx123'):
     print(f"Logowanie użytkownika: {user}, hasło: {password}")
@@ -255,7 +255,7 @@ logowanie = dekorator_dodaj_pola(logowanie)
 logowanie()
 
 """
-Punkt b):
+Punkt B):
 """
 
 def logowanie(user='edek2003', password='Wsx123', **kwargs):
