@@ -457,38 +457,74 @@
 #Zadanie7
 #Wykonaj testy jednostkowe dla zadania 2
 
-import unittest
+# import unittest
+# import math
+#
+# def dodaj(num1, num2):
+#     return math.fsum([num1, num2])
+#
+# def odejmij(num1, num2):
+#     return math.fsum([num1, -num2])
+#
+# def pomnoz(num1, num2):
+#     return math.prod([num1, num2])
+#
+# def podziel(num1, num2):
+#     return divmod(num1, num2)[0]
+#
+# class TestCalculator(unittest.TestCase):
+#     def test_dodaj(self):
+#         self.assertAlmostEqual(dodaj(10, 20), 30.0)
+#
+#     def test_odejmij(self):
+#         self.assertAlmostEqual(odejmij(10, 20), -10.0)
+#
+#     def test_pomnoz(self):
+#         self.assertAlmostEqual(pomnoz(10, 2), 20)
+#
+#     def test_podziel(self):
+#         self.assertAlmostEqual(podziel(10, 2), 5.0)
+#
+# if __name__ == '__main__':
+#     unittest.main()
+
+## **Zadanie 8**:
+# * Testy wydajnościowe: zmierz czas wykonania operacji matematycznej z zadania 2
+# dla jej liczby iteracji i = 1,...,100
+# * Narysuj wykres przedstawiający czas wykonania algorytmu of liczby iteracji
+
+import timeit
 import math
+import matplotlib.pyplot as plt
 
 def dodaj(num1, num2):
-    # implementacja funkcji dodaj()
+    return math.fsum([num1, num2])
 
 def odejmij(num1, num2):
-    # implementacja funkcji odejmij()
+    return math.fsum([num1, -num2])
 
 def pomnoz(num1, num2):
-    # implementacja funkcji pomnoz()
+    return math.prod([num1, num2])
 
 def podziel(num1, num2):
-    # implementacja funkcji podziel()
+    return divmod(num1, num2)[0]
 
-class TestCalculator(unittest.TestCase):
-    def test_dodaj(self):
-        self.assertAlmostEqual(dodaj(10, 20), 30.0)
+def calculator(func, num1, num2):
+    return func(num1, num2)
 
-    def test_odejmij(self):
-        self.assertAlmostEqual(odejmij(10, 20), -10.0)
+iterations = list(range(1, 101))
+times = []
 
-    def test_pomnoz(self):
-        self.assertAlmostEqual(pomnoz(10, 2), 20)
+for i in iterations:
+    testcode = f"calculator(dodaj, {i}, {i})"  #funkcja i argumenty
+    time = timeit.timeit(stmt=testcode, setup="from __main__ import calculator, dodaj")
+    times.append(time)
 
-    def test_podziel(self):
-        self.assertAlmostEqual(podziel(10, 2), 5.0)
-
-if __name__ == '__main__':
-    unittest.main()
-
-
+plt.plot(iterations, times)
+plt.xlabel('Liczba iteracji')
+plt.ylabel('Czas wykonania (sekundy)')
+plt.title('Czas wykonania operacji matematycznej w zależności od liczby iteracji')
+plt.show()
 
 
 
