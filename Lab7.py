@@ -454,8 +454,39 @@
 # kalk3 = Calculator(9, 16)
 # print(kalk3.pierwiastek())  # Calculator(3.0, 4.0)
 
+#Zadanie7
+#Wykonaj testy jednostkowe dla zadania 2
 
+import unittest
+import math
 
+def dodaj(num1, num2):
+    # implementacja funkcji dodaj()
+
+def odejmij(num1, num2):
+    # implementacja funkcji odejmij()
+
+def pomnoz(num1, num2):
+    # implementacja funkcji pomnoz()
+
+def podziel(num1, num2):
+    # implementacja funkcji podziel()
+
+class TestCalculator(unittest.TestCase):
+    def test_dodaj(self):
+        self.assertAlmostEqual(dodaj(10, 20), 30.0)
+
+    def test_odejmij(self):
+        self.assertAlmostEqual(odejmij(10, 20), -10.0)
+
+    def test_pomnoz(self):
+        self.assertAlmostEqual(pomnoz(10, 2), 20)
+
+    def test_podziel(self):
+        self.assertAlmostEqual(podziel(10, 2), 5.0)
+
+if __name__ == '__main__':
+    unittest.main()
 
 
 
