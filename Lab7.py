@@ -384,7 +384,7 @@ def __add__(self, other):
     elif isinstance(other, (int, float)):
         return calculator(self.liczba1 + other, self.liczba2 + other)
     else:
-        raise ValueError("Nieprawidłowy argument: oczekiwano liczby lub calculatora")
+        raise ValueError("Nieprawidłowy argument")
 
 def __sub__(self, other):
     if isinstance(other, calculator):
@@ -392,7 +392,7 @@ def __sub__(self, other):
     elif isinstance(other, (int, float)):
         return calculator(self.liczba1 - other, self.liczba2 - other)
     else:
-        raise ValueError("Nieprawidłowy argument: oczekiwano liczby lub calculatora")
+        raise ValueError("Nieprawidłowy argument")
 
 def __mul__(self, other):
     if isinstance(other, calculator):
@@ -400,7 +400,7 @@ def __mul__(self, other):
     elif isinstance(other, (int, float)):
         return calculator(self.liczba1 * other, self.liczba2 * other)
     else:
-        raise ValueError("Nieprawidłowy argument: oczekiwano liczby lub calculatora")
+        raise ValueError("Nieprawidłowy argument")
 
 def __truediv__(self, other):
     if isinstance(other, calculator):
@@ -412,7 +412,7 @@ def __truediv__(self, other):
             raise ValueError("Nie można dzielić przez zero")
         return calculator(self.liczba1 / other, self.liczba2 / other)
     else:
-        raise ValueError("Nieprawidłowy argument: oczekiwano liczby lub calculatora")
+        raise ValueError("Nieprawidłowy argument")
 
 def pierwiastek(self):
     return calculator(math.sqrt(self.liczba1), math.sqrt(self.liczba2))
