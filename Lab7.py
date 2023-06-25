@@ -372,91 +372,87 @@
 # * wykonaj dokumentację dla 1 metody
 # * użyj metod specyjalnych: \_\_str_\_, \_\_rep_\_, \_\_add_\_ , \_\_sub_\_ , \_\_div_\_
 
-import math
-
-class calculator:
-def init(self, liczba1=0, liczba2=0):
-self.liczba1 = liczba1
-self.liczba2 = liczba2
-
-def __str__(self):
-    return f'calculator({self.liczba1}, {self.liczba2})'
-
-def __repr__(self):
-    return self.__str__()
-
-def __add__(self, other):
-    class Calculator:
-        def __add__(self, other):
-            """Dodaje wartość do obiektu calculator lub dwóch obiektów calculator.
-
-            Args:
-                other (calculator, int, float): Obiekt calculator lub liczba, która zostanie dodana.
-
-            Returns:
-                calculator: Nowy obiekt calculator zawierający wynik dodawania.
-
-            Raises:
-                ValueError: Jeśli argument other nie jest liczbą lub obiektem calculator.
-
-            Examples:
-                Przykładowe użycie:
-                kalk1 = calculator(3, 5)
-                kalk2 = calculator(1, 2)
-                result = calc1 + calc2
-                print(result)  # calculator(4, 7)
-
-                result = calc1 + 10
-                print(result)  # calculator(13, 15)
-            """
-             if isinstance(other, calculator):
-        return calculator(self.liczba1 + other.liczba1, self.liczba2 + other.liczba2)
-    elif isinstance(other, (int, float)):
-        return calculator(self.liczba1 + other, self.liczba2 + other)
-    else:
-        raise ValueError("Nieprawidłowy argument")
-
-def __sub__(self, other):
-    if isinstance(other, calculator):
-        return calculator(self.liczba1 - other.liczba1, self.liczba2 - other.liczba2)
-    elif isinstance(other, (int, float)):
-        return calculator(self.liczba1 - other, self.liczba2 - other)
-    else:
-        raise ValueError("Nieprawidłowy argument")
-
-def __mul__(self, other):
-    if isinstance(other, calculator):
-        return calculator(self.liczba1 * other.liczba1, self.liczba2 * other.liczba2)
-    elif isinstance(other, (int, float)):
-        return calculator(self.liczba1 * other, self.liczba2 * other)
-    else:
-        raise ValueError("Nieprawidłowy argument")
-
-def __truediv__(self, other):
-    if isinstance(other, calculator):
-        if other.liczba1 == 0 or other.liczba2 == 0:
-            raise ValueError("Nie można dzielić przez zero")
-        return calculator(self.liczba1 / other.liczba1, self.liczba2 / other.liczba2)
-    elif isinstance(other, (int, float)):
-        if other == 0:
-            raise ValueError("Nie można dzielić przez zero")
-        return calculator(self.liczba1 / other, self.liczba2 / other)
-    else:
-        raise ValueError("Nieprawidłowy argument")
-
-def pierwiastek(self):
-    return calculator(math.sqrt(self.liczba1), math.sqrt(self.liczba2))
-
-
-# Przykładowe użycie:
-kalk1 = calculator(3, 5)
-kalk2 = calculator(1, 2)
-print(kalk1 + kalk2) # calculator(4, 7)
-
-kalk3 = calculator(9, 16)
-print(kalk3.pierwiastek()) # calculator(3.0, 4.0)
-
-
+# import math
+#
+# class Calculator:
+#     def __init__(self, liczba1=0, liczba2=0):
+#         self.liczba1 = liczba1
+#         self.liczba2 = liczba2
+#
+#     def __str__(self):
+#         return f'Calculator({self.liczba1}, {self.liczba2})'
+#
+#     def __repr__(self):
+#         return self.__str__()
+#
+#     def __add__(self, other):
+#         """Dodaje wartość do obiektu calculator lub dwóch obiektów calculator.
+#
+#                    Args:
+#                        other (calculator, int, float): Obiekt calculator lub liczba, która zostanie dodana.
+#
+#                    Returns:
+#                        calculator: Nowy obiekt calculator zawierający wynik dodawania.
+#
+#                    Raises:
+#                        ValueError: Jeśli argument other nie jest liczbą lub obiektem calculator.
+#
+#                    Examples:
+#                        Przykładowe użycie:
+#                        kalk1 = calculator(3, 5)
+#                        kalk2 = calculator(1, 2)
+#                        result = calc1 + calc2
+#                        print(result)  # calculator(4, 7)
+#
+#                 result = calc1 + 10
+#                 print(result)  # calculator(13, 15)
+#         """
+#         if isinstance(other, Calculator):
+#             return Calculator(self.liczba1 + other.liczba1, self.liczba2 + other.liczba2)
+#         elif isinstance(other, (int, float)):
+#             return Calculator(self.liczba1 + other, self.liczba2 + other)
+#         else:
+#             raise ValueError("Nieprawidłowy argument")
+#
+#     def __sub__(self, other):
+#         if isinstance(other, Calculator):
+#             return Calculator(self.liczba1 - other.liczba1, self.liczba2 - other.liczba2)
+#         elif isinstance(other, (int, float)):
+#             return Calculator(self.liczba1 - other, self.liczba2 - other)
+#         else:
+#             raise ValueError("Nieprawidłowy argument")
+#
+#     def __mul__(self, other):
+#         if isinstance(other, Calculator):
+#             return Calculator(self.liczba1 * other.liczba1, self.liczba2 * other.liczba2)
+#         elif isinstance(other, (int, float)):
+#             return Calculator(self.liczba1 * other, self.liczba2 * other)
+#         else:
+#             raise ValueError("Nieprawidłowy argument")
+#
+#     def __truediv__(self, other):
+#         if isinstance(other, Calculator):
+#             if other.liczba1 == 0 or other.liczba2 == 0:
+#                 raise ValueError("Nie można dzielić przez zero")
+#             return Calculator(self.liczba1 / other.liczba1, self.liczba2 / other.liczba2)
+#         elif isinstance(other, (int, float)):
+#             if other == 0:
+#                 raise ValueError("Nie można dzielić przez zero")
+#             return Calculator(self.liczba1 / other, self.liczba2 / other)
+#         else:
+#             raise ValueError("Nieprawidłowy argument")
+#
+#     def pierwiastek(self):
+#         return Calculator(math.sqrt(self.liczba1), math.sqrt(self.liczba2))
+#
+#
+# # Przykładowe użycie:
+# kalk1 = Calculator(3, 5)
+# kalk2 = Calculator(1, 2)
+# print(kalk1 + kalk2)  # Calculator(4, 7)
+#
+# kalk3 = Calculator(9, 16)
+# print(kalk3.pierwiastek())  # Calculator(3.0, 4.0)
 
 
 
