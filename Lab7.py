@@ -363,7 +363,14 @@
 
 
 # Zadanie6
-
+# Utwórz program kalkulator (operacje: dodawanie, odejmowanie, mnożenie, dzielenie dwu liczb), programuj w paradygmacie obiektowym
+#
+# a) wariant z obsługą wyjątków
+#
+# **Note:**
+# * użyj funkcji wbudowanych, pakietu math
+# * wykonaj dokumentację dla 1 metody
+# * użyj metod specyjalnych: \_\_str_\_, \_\_rep_\_, \_\_add_\_ , \_\_sub_\_ , \_\_div_\_
 
 import math
 
@@ -379,7 +386,30 @@ def __repr__(self):
     return self.__str__()
 
 def __add__(self, other):
-    if isinstance(other, calculator):
+    class Calculator:
+        def __add__(self, other):
+            """Dodaje wartość do obiektu calculator lub dwóch obiektów calculator.
+
+            Args:
+                other (calculator, int, float): Obiekt calculator lub liczba, która zostanie dodana.
+
+            Returns:
+                calculator: Nowy obiekt calculator zawierający wynik dodawania.
+
+            Raises:
+                ValueError: Jeśli argument other nie jest liczbą lub obiektem calculator.
+
+            Examples:
+                Przykładowe użycie:
+                kalk1 = calculator(3, 5)
+                kalk2 = calculator(1, 2)
+                result = calc1 + calc2
+                print(result)  # calculator(4, 7)
+
+                result = calc1 + 10
+                print(result)  # calculator(13, 15)
+            """
+             if isinstance(other, calculator):
         return calculator(self.liczba1 + other.liczba1, self.liczba2 + other.liczba2)
     elif isinstance(other, (int, float)):
         return calculator(self.liczba1 + other, self.liczba2 + other)
