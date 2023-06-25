@@ -493,38 +493,79 @@
 # dla jej liczby iteracji i = 1,...,100
 # * Narysuj wykres przedstawiający czas wykonania algorytmu of liczby iteracji
 
-import timeit
-import math
-import matplotlib.pyplot as plt
+# wersja 1
+# import timeit
+# import math
+# import matplotlib.pyplot as plt
+#
+# def dodaj(num1, num2):
+#     return math.fsum([num1, num2])
+#
+# def odejmij(num1, num2):
+#     return math.fsum([num1, -num2])
+#
+# def pomnoz(num1, num2):
+#     return math.prod([num1, num2])
+#
+# def podziel(num1, num2):
+#     return divmod(num1, num2)[0]
+#
+# def calculator(func, num1, num2):
+#     return func(num1, num2)
+#
+# iteracje = list(range(1, 101))
+# times = []
+#
+# for i in iteracje:
+#     testcode = f"calculator(dodaj, {i}, {i})"  #funkcja i argumenty
+#     time = timeit.timeit(stmt=testcode, setup="from __main__ import calculator, dodaj")
+#     times.append(time)
+#
+# plt.plot(iteracje, times)
+# plt.xlabel('Liczba iteracji')
+# plt.ylabel('Czas wykonania (sekundy)')
+# plt.title('Czas wykonania operacji matematycznej w zależności od liczby iteracji')
+# plt.show()
 
-def dodaj(num1, num2):
-    return math.fsum([num1, num2])
+#  wersja 2 - kod używa funkcji timeit w połączeniu z wrapperem,
+#  aby poprawnie zmierzyć czas wykonania funkcji calculator(dodaj, i, i) dla różnych iteracji.
+#  Dodatkowo, zmieniono parametr number na 1,
+#  aby timeit wykonał tylko jedno wywołanie funkcji dla każdej iteracji
 
-def odejmij(num1, num2):
-    return math.fsum([num1, -num2])
-
-def pomnoz(num1, num2):
-    return math.prod([num1, num2])
-
-def podziel(num1, num2):
-    return divmod(num1, num2)[0]
-
-def calculator(func, num1, num2):
-    return func(num1, num2)
-
-iterations = list(range(1, 101))
-times = []
-
-for i in iterations:
-    testcode = f"calculator(dodaj, {i}, {i})"  #funkcja i argumenty
-    time = timeit.timeit(stmt=testcode, setup="from __main__ import calculator, dodaj")
-    times.append(time)
-
-plt.plot(iterations, times)
-plt.xlabel('Liczba iteracji')
-plt.ylabel('Czas wykonania (sekundy)')
-plt.title('Czas wykonania operacji matematycznej w zależności od liczby iteracji')
-plt.show()
+# import timeit
+# import math
+# import matplotlib.pyplot as plt
+#
+# def dodaj(num1, num2):
+#     return math.fsum([num1, num2])
+#
+# def odejmij(num1, num2):
+#     return math.fsum([num1, -num2])
+#
+# def pomnoz(num1, num2):
+#     return math.prod([num1, num2])
+#
+# def podziel(num1, num2):
+#     return divmod(num1, num2)[0]
+#
+# def calculator(func, num1, num2):
+#     return func(num1, num2)
+#
+# iteracje = list(range(1, 101))
+# times = []
+#
+# for i in iteracje:
+#     def wrapper():
+#         return calculator(dodaj, i, i)  # Wywołanie funkcji wewnątrz wrappera
+#
+#     time = timeit.timeit(wrapper, number=1)  # Ustawienie parametru number=1
+#     times.append(time)
+#
+# plt.plot(iteracje, times)
+# plt.xlabel('Liczba iteracji')
+# plt.ylabel('Czas wykonania (sekundy)')
+# plt.title('Czas wykonania operacji matematycznej w zależności od liczby iteracji')
+# plt.show()
 
 
 
