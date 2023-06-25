@@ -1,5 +1,5 @@
 # Zadanie1
-# Utwórz program kalkulator (operacje: dodawanie, odejmowanie, mnożenie, dzielenie dwu liczb),
+# Utwórz program calculator (operacje: dodawanie, odejmowanie, mnożenie, dzielenie dwu liczb),
 # programuj w paradygmacie strukturalnym
 # a) wariant bez obsługi wyjątków
 
@@ -7,7 +7,7 @@
 #     """Wykonuje wybraną operację matematyczną na dwóch liczbach.
 #
 #     Args:
-#         operation (str): Operacja do wykonania. Możliwości: 'dodaj', 'odejmij', 'pomnóż' lub 'podziel'.
+#         operation (str): Operacja do wykonania. Możliwości: 'dodaj', 'odejmij', 'pomnoz' lub 'podziel'.
 #         num1, num2 (int | float): Liczby na których wykonujemy operację.
 #
 #     """
@@ -15,7 +15,7 @@
 #         result = num1 + num2
 #     elif operation == 'odejmij':
 #         result = num1 - num2
-#     elif operation == 'pomnóż':
+#     elif operation == 'pomnoz':
 #         result = num1 * num2
 #     elif operation == 'podziel':
 #         result = num1 / num2
@@ -28,12 +28,12 @@
 # # Test funkcji:
 # calculator('dodaj', 10, 20)  # Wyjście: 30
 # calculator('odejmij', 10, 20)  # Wyjście: -10
-# calculator('pomnóż', 10, 2)  # Wyjście: 20
+# calculator('pomnoz', 10, 2)  # Wyjście: 20
 # calculator('podziel', 10, 2)  # Wyjście: 5.0
 
 # Zadanie2
 ## ## **Zadanie 2**
-# Utwórz program kalkulator (operacje: dodawanie, odejmowanie, mnożenie, dzielenie dwu liczb), programuj w paradygmacie funkcyjnym
+# Utwórz program calculator (operacje: dodawanie, odejmowanie, mnożenie, dzielenie dwu liczb), programuj w paradygmacie funkcyjnym
 #
 # a) wariant bez obsługi wyjątków
 #
@@ -67,7 +67,7 @@
 #     """
 #     return math.fsum([num1, -num2])
 #
-# def pomnóż(num1, num2):
+# def pomnoz(num1, num2):
 #     """Mnoży dwie liczby.
 #
 #     Args:
@@ -92,7 +92,7 @@
 # def calculator(func, num1, num2):
 #     """Wykonuje wybraną operację matematyczną na dwóch liczbach.
 #
-#     Funkcja wyższego rzędu, która przyjmuje jako argumenty funkcję (dodaj, odejmij, pomnóż, podziel)
+#     Funkcja wyższego rzędu, która przyjmuje jako argumenty funkcję (dodaj, odejmij, pomnoz, podziel)
 #     oraz dwie liczby.
 #
 #     Args:
@@ -119,105 +119,329 @@
 # utwórz 2 moduły: pierwszy zawiera 4 funkcje proste dla poszczególnych operacji matematycznych drugi moduł zawiera 1 funkcję która zarządza wszystkimi operacjami
 # wykonaj dokumentację dla 1 modułu
 
-# Moduł 1 (operacje.py):
+## Moduł 1 (operacje.py):
+
+# import math
+#
+# def dodaj(num1, num2):
+#     """Dodaje dwie liczby.
+#
+#     Args:
+#         num1, num2 (int lub float): Liczby do dodania.
+#
+#     Returns:
+#         Suma num1 i num2.
+#
+#     Raises:
+#         TypeError: Jeżeli num1 lub num2 nie jest liczbą.
+#     """
+#     if isinstance(num1, (int, float)) and isinstance(num2, (int, float)):
+#         return math.fsum([num1, num2])
+#     else:
+#         raise TypeError('Both num1 and num2 must be numbers.')
+#
+# def odejmij(num1, num2):
+#     """Odejmuje drugą liczbę od pierwszej.
+#
+#     Args:
+#         num1, num2 (int lub float): Liczby do operacji.
+#
+#     Returns:
+#         Wynik odejmowania num2 od num1.
+#
+#     Raises:
+#         TypeError: Jeżeli num1 lub num2 nie jest liczbą.
+#     """
+#     if isinstance(num1, (int, float)) and isinstance(num2, (int, float)):
+#         return math.fsum([num1, -num2])
+#     else:
+#         raise TypeError('Oba parametry muszą być liczbami')
+#
+# def pomnoz(num1, num2):
+#     """Mnoży dwie liczby.
+#
+#     Args:
+#         num1, num2 (int lub float): Liczby do pomnożenia.
+#
+#     Returns:
+#         Iloczyn num1 i num2.
+#
+#     Raises:
+#         TypeError: Jeżeli num1 lub num2 nie jest liczbą.
+#     """
+#     if isinstance(num1, (int, float)) and isinstance(num2, (int, float)):
+#         return math.prod([num1, num2])
+#     else:
+#         raise TypeError('Oba parametry muszą być liczbami')
+#
+# def podziel(num1, num2):
+#     """Dzieli pierwszą liczbę przez drugą.
+#
+#     Args:
+#         num1, num2 (int lub float): Liczby do operacji.
+#
+#     Returns:
+#         Wynik dzielenia num1 przez num2.
+#
+#     Raises:
+#         TypeError: Jeżeli num1 lub num2 nie jest liczbą.
+#         ZeroDivisionError: Jeżeli num2 jest zerem.
+#     """
+#     if isinstance(num1, (int, float)) and isinstance(num2, (int, float)):
+#         if num2 != 0:
+#             return divmod(num1, num2)[0]
+#         else:
+#             raise ZeroDivisionError('Nie można dzielić przez ZERO')
+#     else:
+#         raise TypeError('Oba parametry muszą być liczbami')
+
+# # Moduł 2 (calculator.py):
+
+# from operations import dodaj, odejmij, pomnoz, podziel
+#
+# def calculator(func, num1, num2):
+#     """Wykonuje wybraną operację matematyczną na dwóch liczbach.
+#
+#     Funkcja wyższego rzędu, która przyjmuje jako argumenty funkcję (dodaj, odejmij, pomnoz, podziel)
+#     oraz dwie liczby.
+#
+#     Args:
+#         func (function): Funkcja do wykonania.
+#         num1, num2 (int lub float): Liczby na których wykonujemy operację.
+#
+#     Returns:
+#         Wynik działania funkcji func na num1 i num2.
+#     """
+#     return func(num1, num2)
+#
+# # Testy funkcji:
+# print(calculator(dodaj, 10, 20))  # Wyjście: 30.0
+# print(calculator(odejmij, 10, 20))  # Wyjście: -10.0
+# print(calculator(pomnoz, 10, 2))  # Wyjście: 20
+# print(calculator(podziel, 10, 2))  # Wyjście: 5.0
+
+## Zadanie4
+# Utwórz program calculator wykonujący operacje: dodawanie, odejmowanie, mnożenie, dzielenie na dowolnej sekwencji liczb N liczb (dane wejściowe: lista lub ciąg liczb rozdzielonych przecinkiem), programuj w paradygmacie funkcyjnym
+#
+# Note:
+#
+# zaimplementuj funkcję wielu zmiennych wejściowych
+
+# import math
+# from typing import List, Union
+# from functools import reduce
+#
+# def dodaj(*args: Union[List[float], float]) -> float:
+#     sequence = list(args)
+#     for i, arg in enumerate(sequence):
+#         if isinstance(arg, list):
+#             sequence[i:i+1] = arg
+#         elif not isinstance(arg, (int, float)):
+#             raise TypeError('Parametry muszą być liczbami.')
+#     return math.fsum(sequence)
+#
+# def mnoz(*numbers):
+#     return reduce(lambda x, y: x * y, numbers)
+#
+# def podziel(*numbers):
+#     try:
+#         return reduce(lambda x, y: x / y, numbers)
+#     except ZeroDivisionError:
+#         return 'Error: Dzielenie przez zero'
+#
+# def potega(*numbers):
+#     return reduce(lambda x, y: x ** y, numbers)
+#
+# def calculator(func, *args):
+#     return func(*args)
+#
+# # Testy funkcji:
+# print(calculator(dodaj, 1, 2, 3, 4, 5))  # Wyjście: 15.0
+# print(calculator(mnoz, 1, 2, 3, 4, 5))  # Wyjście: 120
+# print(calculator(podziel, 100, 2))  # Wyjście: 50.0
+# print(calculator(potega, 2, 3))  # Wyjście: 8
+
+
+## Zadanie5
+# Utwórz program calculator z GUI (operacje: dodawanie, odejmowanie, mnożenie, dzielenie dwu liczb). Użytkownik ma możliwość zapisania danych do pliku tekstowego (nazwę pliku wraz ze ścieżką dostępu deklaruje użytkownik)
+#
+# a) wariant z obsługą wyjątków
+#
+# **Note:**
+# * użyj funkcji okienek wbudowanych, dla wyświetlenia błędów (obsługa wyjątków)
+#
+# *Użyj edytora kodu innego niż JupyterNotebook*
+
+# import tkinter as tk
+# from tkinter import messagebox
+#
+# class Application(tk.Frame):
+#     def __init__(self, master=None):
+#         super().__init__(master)
+#         self.master = master
+#         self.pack()
+#         self.create_widgets()
+#
+#     def create_widgets(self):
+#         self.num1_entry = tk.Entry(self)
+#         self.num1_entry.pack()
+#
+#         self.num2_entry = tk.Entry(self)
+#         self.num2_entry.pack()
+#
+#         self.result_label = tk.Label(self)
+#         self.result_label.pack()
+#
+#         self.dodaj_button = tk.Button(self)
+#         self.dodaj_button["text"] = "DODAWANIE"
+#         self.dodaj_button["command"] = self.dodaj
+#         self.dodaj_button.pack(side="left")
+#
+#         self.odejmij_button = tk.Button(self)
+#         self.odejmij_button["text"] = "ODEJMOWANIE"
+#         self.odejmij_button["command"] = self.odejmij
+#         self.odejmij_button.pack(side="left")
+#
+#         self.pomnoz_button = tk.Button(self)
+#         self.pomnoz_button["text"] = "MNOŻENIE"
+#         self.pomnoz_button["command"] = self.pomnoz
+#         self.pomnoz_button.pack(side="left")
+#
+#         self.dzielenie_button = tk.Button(self)
+#         self.dzielenie_button["text"] = "DZIELENIE"
+#         self.dzielenie_button["command"] = self.dzielenie
+#         self.dzielenie_button.pack(side="left")
+#
+#         self.quit = tk.Button(self, text="QUIT", fg="red",
+#                               command=self.master.destroy)
+#         self.quit.pack(side="bottom")
+#
+#     def safe_float(self, text):
+#         try:
+#             return float(text)
+#         except ValueError:
+#             return None
+#
+#     def perform_operation(self, operation):
+#         num1 = self.safe_float(self.num1_entry.get())
+#         num2 = self.safe_float(self.num2_entry.get())
+#
+#         if num1 is None or num2 is None:
+#             messagebox.showerror("Error", "Brak danych lub niekompletne")
+#             return
+#
+#         if operation == 'dzielenie' and num2 == 0:
+#             messagebox.showerror("Error", "Dzielnie przez 0")
+#             return
+#
+#         operations = {'dodaj': num1 + num2, 'odejmij': num1 - num2,
+#                       'pomnoz': num1 * num2, 'dzielenie': num1 / num2}
+#
+#         result = operations[operation]
+#         self.result_label["text"] = str(result)
+#
+#     def dodaj(self):
+#         self.perform_operation('dodaj')
+#
+#     def odejmij(self):
+#         self.perform_operation('odejmij')
+#
+#     def pomnoz(self):
+#         self.perform_operation('pomnoz')
+#
+#     def dzielenie(self):
+#         self.perform_operation('dzielenie')
+#
+#
+# root = tk.Tk()
+#
+#
+# root.title("calculator")
+#
+# app = Application(master=root)
+# app.mainloop()
+
+
+# Zadanie6
+
+
 import math
 
-def dodaj(num1, num2):
-    """Dodaje dwie liczby.
+class calculator:
+def init(self, liczba1=0, liczba2=0):
+self.liczba1 = liczba1
+self.liczba2 = liczba2
 
-    Args:
-        num1, num2 (int lub float): Liczby do dodania.
+def __str__(self):
+    return f'calculator({self.liczba1}, {self.liczba2})'
 
-    Returns:
-        Suma num1 i num2.
+def __repr__(self):
+    return self.__str__()
 
-    Raises:
-        TypeError: Jeżeli num1 lub num2 nie jest liczbą.
-    """
-    if isinstance(num1, (int, float)) and isinstance(num2, (int, float)):
-        return math.fsum([num1, num2])
+def __add__(self, other):
+    if isinstance(other, calculator):
+        return calculator(self.liczba1 + other.liczba1, self.liczba2 + other.liczba2)
+    elif isinstance(other, (int, float)):
+        return calculator(self.liczba1 + other, self.liczba2 + other)
     else:
-        raise TypeError('Both num1 and num2 must be numbers.')
+        raise ValueError("Nieprawidłowy argument: oczekiwano liczby lub calculatora")
 
-def odejmij(num1, num2):
-    """Odejmuje drugą liczbę od pierwszej.
-
-    Args:
-        num1, num2 (int lub float): Liczby do operacji.
-
-    Returns:
-        Wynik odejmowania num2 od num1.
-
-    Raises:
-        TypeError: Jeżeli num1 lub num2 nie jest liczbą.
-    """
-    if isinstance(num1, (int, float)) and isinstance(num2, (int, float)):
-        return math.fsum([num1, -num2])
+def __sub__(self, other):
+    if isinstance(other, calculator):
+        return calculator(self.liczba1 - other.liczba1, self.liczba2 - other.liczba2)
+    elif isinstance(other, (int, float)):
+        return calculator(self.liczba1 - other, self.liczba2 - other)
     else:
-        raise TypeError('Oba parametry muszą być liczbami')
+        raise ValueError("Nieprawidłowy argument: oczekiwano liczby lub calculatora")
 
-def pomnoz(num1, num2):
-    """Mnoży dwie liczby.
-
-    Args:
-        num1, num2 (int lub float): Liczby do pomnożenia.
-
-    Returns:
-        Iloczyn num1 i num2.
-
-    Raises:
-        TypeError: Jeżeli num1 lub num2 nie jest liczbą.
-    """
-    if isinstance(num1, (int, float)) and isinstance(num2, (int, float)):
-        return math.prod([num1, num2])
+def __mul__(self, other):
+    if isinstance(other, calculator):
+        return calculator(self.liczba1 * other.liczba1, self.liczba2 * other.liczba2)
+    elif isinstance(other, (int, float)):
+        return calculator(self.liczba1 * other, self.liczba2 * other)
     else:
-        raise TypeError('Oba parametry muszą być liczbami')
+        raise ValueError("Nieprawidłowy argument: oczekiwano liczby lub calculatora")
 
-def podziel(num1, num2):
-    """Dzieli pierwszą liczbę przez drugą.
-
-    Args:
-        num1, num2 (int lub float): Liczby do operacji.
-
-    Returns:
-        Wynik dzielenia num1 przez num2.
-
-    Raises:
-        TypeError: Jeżeli num1 lub num2 nie jest liczbą.
-        ZeroDivisionError: Jeżeli num2 jest zerem.
-    """
-    if isinstance(num1, (int, float)) and isinstance(num2, (int, float)):
-        if num2 != 0:
-            return divmod(num1, num2)[0]
-        else:
-            raise ZeroDivisionError('Nie można dzielić przez ZERO')
+def __truediv__(self, other):
+    if isinstance(other, calculator):
+        if other.liczba1 == 0 or other.liczba2 == 0:
+            raise ValueError("Nie można dzielić przez zero")
+        return calculator(self.liczba1 / other.liczba1, self.liczba2 / other.liczba2)
+    elif isinstance(other, (int, float)):
+        if other == 0:
+            raise ValueError("Nie można dzielić przez zero")
+        return calculator(self.liczba1 / other, self.liczba2 / other)
     else:
-        raise TypeError('Oba parametry muszą być liczbami')
+        raise ValueError("Nieprawidłowy argument: oczekiwano liczby lub calculatora")
 
-# Moduł 2 (calculator.py):
+def pierwiastek(self):
+    return calculator(math.sqrt(self.liczba1), math.sqrt(self.liczba2))
 
-from operations import dodaj, odejmij, pomnoz, podziel
 
-def calculator(func, num1, num2):
-    """Wykonuje wybraną operację matematyczną na dwóch liczbach.
+# Przykładowe użycie:
+kalk1 = calculator(3, 5)
+kalk2 = calculator(1, 2)
+print(kalk1 + kalk2) # calculator(4, 7)
 
-    Funkcja wyższego rzędu, która przyjmuje jako argumenty funkcję (dodaj, odejmij, pomnóż, podziel)
-    oraz dwie liczby.
+kalk3 = calculator(9, 16)
+print(kalk3.pierwiastek()) # calculator(3.0, 4.0)
 
-    Args:
-        func (function): Funkcja do wykonania.
-        num1, num2 (int lub float): Liczby na których wykonujemy operację.
 
-    Returns:
-        Wynik działania funkcji func na num1 i num2.
-    """
-    return func(num1, num2)
 
-# Testy funkcji:
-print(calculator(dodaj, 10, 20))  # Wyjście: 30.0
-print(calculator(odejmij, 10, 20))  # Wyjście: -10.0
-print(calculator(pomnoz, 10, 2))  # Wyjście: 20
-print(calculator(podziel, 10, 2))  # Wyjście: 5.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -227,7 +451,7 @@ print(calculator(podziel, 10, 2))  # Wyjście: 5.0
 #
 # def printIntro():
 #     print("This is a simple calc.")
-# print("Select an operation:\n1) Add\n2) Subtract\n3) Divide\n4) Multiply")
+# print("Select an operation:\n1) dodaj\n2) odejmij\n3) dzielenie\n4) pomnoz")
 #
 # while True:
 #     operator = input("Enter your choice of + - / *: \n")
@@ -245,16 +469,16 @@ print(calculator(podziel, 10, 2))  # Wyjście: 5.0
 #             break
 #
 #         if operator == '+':
-#             print(add(list))
+#             print(dodaj(list))
 #
 #         if operator == '-':
-#             print(subtract(list))
+#             print(odejmij(list))
 #
 #         if operator == '/':
-#             print(divide(list))
+#             print(dzielenie(list))
 #
 #         if operator == '*':
-#             print(multiply(list))
+#             print(pomnoz(list))
 #     else:
 #         break
 #
@@ -264,14 +488,14 @@ print(calculator(podziel, 10, 2))  # Wyjście: 5.0
 # # import math_operations as mo
 # #
 # #
-# # def kalkulator(lista_danych):
+# # def calculator(lista_danych):
 # #     """
 # #     Zarządza wszystkimi operacjami matematycznymi z modułu math_operations.
 # #
 # #     Argument:
 # #     lista_danych: Lista czteroelementowa zawierająca dwie liczby do obliczeń,
 # #                   numer operacji do wykonania (1 - dodawanie, 2 - odejmowanie, 3 - mnożenie, 4 - dzielenie)
-# #                   i decyzję o kontynuacji działania kalkulatora (0 - zakończ działanie, 1 - kontynuuj).
+# #                   i decyzję o kontynuacji działania calculatora (0 - zakończ działanie, 1 - kontynuuj).
 # #     """
 # #     operacje = {
 # #         1: mo.dodaj,
@@ -287,7 +511,7 @@ print(calculator(podziel, 10, 2))  # Wyjście: 5.0
 # #     # Wybór operacji
 # #     wybor = lista_danych[2]
 # #
-# #     # Wybór kontynuacji działania kalkulatora
+# #     # Wybór kontynuacji działania calculatora
 # #     kontynuacja = lista_danych[3]
 # #
 # #     operacja = operacje.get(int(wybor))
@@ -300,14 +524,14 @@ print(calculator(podziel, 10, 2))  # Wyjście: 5.0
 # #     else:
 # #         print("Nieznana operacja")
 # #
-# #     # Kontynuacja działania kalkulatora jeżeli kontynuacja = 1
+# #     # Kontynuacja działania calculatora jeżeli kontynuacja = 1
 # #     if kontynuacja == 1:
-# #         kalkulator(lista_danych)
+# #         calculator(lista_danych)
 # #
 # #
 # # if __name__ == "__main__":
 # #     lista_danych = [10, 5, 1, 1]
-# #     kalkulator(lista_danych)
+# #     calculator(lista_danych)
 #
 #
 # # # Definiowanie funkcji dla każdej operacji
@@ -328,7 +552,7 @@ print(calculator(podziel, 10, 2))  # Wyjście: 5.0
 # #     print("Wybierz operację:")
 # #     print("1.Dodaj")
 # #     print("2.Odejmij")
-# #     print("3.Pomnóż")
+# #     print("3.pomnoz")
 # #     print("4.Podziel")
 # #     print("5.Zakończ")
 # #
@@ -411,7 +635,7 @@ print(calculator(podziel, 10, 2))  # Wyjście: 5.0
 # #     """
 # #     return a / b
 # #
-# # def kalkulator(operacja, a, b):
+# # def calculator(operacja, a, b):
 # #     """
 # #     Funkcja wyższego rzędu zarządzająca operacjami matematycznymi
 # #
@@ -426,18 +650,18 @@ print(calculator(podziel, 10, 2))  # Wyjście: 5.0
 # #     return operacja(a, b)
 # #
 # #
-# # # Testowanie funkcji kalkulatora
-# # print(kalkulator(dodaj, 5, 3))  # Wyświetli 8
-# # print(kalkulator(odejmij, 5, 3))  # Wyświetli 2
-# # print(kalkulator(pomnoz, 5, 3))  # Wyświetli 15
-# # print(kalkulator(podziel, 5, 3))  # Wyświetli 1.6666666666666667
+# # # Testowanie funkcji calculatora
+# # print(calculator(dodaj, 5, 3))  # Wyświetli 8
+# # print(calculator(odejmij, 5, 3))  # Wyświetli 2
+# # print(calculator(pomnoz, 5, 3))  # Wyświetli 15
+# # print(calculator(podziel, 5, 3))  # Wyświetli 1.6666666666666667
 # #
 # ----------------------------
 #
 # # import math_operations as mo
 # #
 # #
-# # def kalkulator():
+# # def calculator():
 # #     """
 # #     Zarządza wszystkimi operacjami matematycznymi z modułu math_operations.
 # #     """
@@ -477,20 +701,20 @@ print(calculator(podziel, 10, 2))  # Wyjście: 5.0
 # #
 # #
 # # if __name__ == "__main__":
-# #     kalkulator()
+# #     calculator()
 # ----------------
 #
 # # import math_operations as mo
 # #
 # #
-# # def kalkulator(lista_danych):
+# # def calculator(lista_danych):
 # #     """
 # #     Zarządza wszystkimi operacjami matematycznymi z modułu math_operations.
 # #
 # #     Argument:
 # #     lista_danych: Lista czteroelementowa zawierająca dwie liczby do obliczeń,
 # #                   numer operacji do wykonania (1 - dodawanie, 2 - odejmowanie, 3 - mnożenie, 4 - dzielenie)
-# #                   i decyzję o kontynuacji działania kalkulatora (0 - zakończ działanie, 1 - kontynuuj).
+# #                   i decyzję o kontynuacji działania calculatora (0 - zakończ działanie, 1 - kontynuuj).
 # #     """
 # #     operacje = {
 # #         1: mo.dodaj,
@@ -506,7 +730,7 @@ print(calculator(podziel, 10, 2))  # Wyjście: 5.0
 # #     # Wybór operacji
 # #     wybor = lista_danych[2]
 # #
-# #     # Wybór kontynuacji działania kalkulatora
+# #     # Wybór kontynuacji działania calculatora
 # #     kontynuacja = lista_danych[3]
 # #
 # #     operacja = operacje.get(int(wybor))
@@ -519,14 +743,14 @@ print(calculator(podziel, 10, 2))  # Wyjście: 5.0
 # #     else:
 # #         print("Nieznana operacja")
 # #
-# #     # Kontynuacja działania kalkulatora jeżeli kontynuacja = 1
+# #     # Kontynuacja działania calculatora jeżeli kontynuacja = 1
 # #     if kontynuacja == 1:
-# #         kalkulator(lista_danych)
+# #         calculator(lista_danych)
 # #
 # #
 # # if __name__ == "__main__":
 # #     lista_danych = [10, 5, 1, 1]
-# #     kalkulator(lista_danych)
+# #     calculator(lista_danych)
 #
 #
 # # # Zadanie 1
@@ -775,7 +999,7 @@ print(calculator(podziel, 10, 2))  # Wyjście: 5.0
 #     return a / b
 #
 #
-# def kalkulator(operacja, a, b):
+# def calculator(operacja, a, b):
 #     """
 #     Funkcja wyższego rzędu zarządzająca operacjami matematycznymi
 #
@@ -791,12 +1015,12 @@ print(calculator(podziel, 10, 2))  # Wyjście: 5.0
 #
 #
 # # Testowanie
-# print(kalkulator(plus, 25, 3))  # Wyświetli 28
-# print(kalkulator(minus, 25, 3))  # Wyświetli 22
-# print(kalkulator(pomnoz, 35, 25))  # Wyświetli 275
-# print(kalkulator(minus, 55, 33))  # Wyświetli 22
-# print(kalkulator(pomnoz, 5, 37))  # Wyświetli 165
-# print(kalkulator(podziel, 590, 3))  # Wyświetli 165
+# print(calculator(plus, 25, 3))  # Wyświetli 28
+# print(calculator(minus, 25, 3))  # Wyświetli 22
+# print(calculator(pomnoz, 35, 25))  # Wyświetli 275
+# print(calculator(minus, 55, 33))  # Wyświetli 22
+# print(calculator(pomnoz, 5, 37))  # Wyświetli 165
+# print(calculator(podziel, 590, 3))  # Wyświetli 165
 # #
 
 #
@@ -891,7 +1115,7 @@ print(calculator(podziel, 10, 2))  # Wyjście: 5.0
 #
 #
 # def run_calc():
-#     """Uruchamia kalkulator."""
+#     """Uruchamia calculator."""
 #     while True:
 #         operacja = int(input("Wybierz operację: \n"
 #                              "1. Dodawanie \n"
@@ -1046,7 +1270,7 @@ print(calculator(podziel, 10, 2))  # Wyjście: 5.0
 #
 #
 # def run_calc():
-#     """Uruchamia kalkulator."""
+#     """Uruchamia calculator."""
 #     while True:
 #         operacja = int(input("Wybór operacji matematycznej. Wybierz opcję z listy podanych wyœwietlając jej numer "
 #                              "operację: \n"
@@ -1124,7 +1348,7 @@ print(calculator(podziel, 10, 2))  # Wyjście: 5.0
 #
 # mport math
 #
-# def add(a, b):
+# def dodaj(a, b):
 #     """
 #     Dodaje dwie liczby.
 #
@@ -1137,7 +1361,7 @@ print(calculator(podziel, 10, 2))  # Wyjście: 5.0
 #     """
 #     return a + b
 #
-# def subtract(a, b):
+# def odejmij(a, b):
 #     """
 #     Odejmuje dwie liczby.
 #
@@ -1150,7 +1374,7 @@ print(calculator(podziel, 10, 2))  # Wyjście: 5.0
 #     """
 #     return a - b
 #
-# def multiply(a, b):
+# def pomnoz(a, b):
 #     """
 #     Mnoży dwie liczby.
 #
@@ -1163,7 +1387,7 @@ print(calculator(podziel, 10, 2))  # Wyjście: 5.0
 #     """
 #     return a * b
 #
-# def divide(a, b):
+# def dzielenie(a, b):
 #     """
 #     Dzieli dwie liczby.
 #
@@ -1192,10 +1416,10 @@ print(calculator(podziel, 10, 2))  # Wyjście: 5.0
 #         ValueError: Jeśli operacja nie jest obsługiwana.
 #     """
 #     operations = {
-#         'add': dodawanie,
-#         'subtract': odejmowanie,
-#         'multiply': mnożenie,
-#         'divide': dziel
+#         'dodaj': dodawanie,
+#         'odejmij': odejmowanie,
+#         'pomnoz': mnożenie,
+#         'dzielenie': dziel
 #     }
 #
 #     func = operations.get(operation)
@@ -1203,12 +1427,12 @@ print(calculator(podziel, 10, 2))  # Wyjście: 5.0
 #         return func(a, b)
 #     else:
 #         raise ValueError("Nieprawidłowa operacja")
-#     # if operation == 'add':
+#     # if operation == 'dodaj':
 #
 # # Przykładowe użycie
-# result = calculator('add', 5, 3)
+# result = calculator('dodaj', 5, 3)
 # print(result) # Wynik: 8
-# result = calculator('divide', 5, 3)
+# result = calculator('dzielenie', 5, 3)
 # print(result) # Wynik: 1.6666666666666667
-# result = calculator('divide', 5, 0)
+# result = calculator('dzielenie', 5, 0)
 # print(result) # Wynik: ValueError: Nieprawidłowa operacja
